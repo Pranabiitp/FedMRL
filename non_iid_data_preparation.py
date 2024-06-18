@@ -20,7 +20,7 @@ import shutil
 import numpy as np
 
 # Define paths
-data_folder = "/home/sriparna/ISIC-2018/train"
+data_folder = "/path/to/the/dataset"
 output_folder = "isic_alpha_1.0"
 
 # Ensure output folder exists
@@ -81,61 +81,7 @@ for i in range(num_clients):
                 shutil.copy(os.path.join(class_folder, sample), local_dataset_folder)
 
 
-# In[ ]:
 
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[1]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
 
 
 
