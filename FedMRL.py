@@ -13,12 +13,6 @@ os.environ["CUDA_VISIBLE_DEVICES"]=str(gpu)
 
 
 
-
-
-# In[2]:
-
-
-
 import numpy as np
 import random
 import os
@@ -39,13 +33,9 @@ from tensorflow.keras.layers import Flatten
 from tensorflow.keras.layers import Dense
 from tensorflow.keras.optimizers import SGD
 from tensorflow.keras import backend as K
-# !pip install fl_implementation_utils
-
-# from fl_implementation_utils import *
-    
 
 
-# In[3]:
+# In[2]:
 
 
 def create_clients(data_dict):
@@ -62,13 +52,7 @@ def create_clients(data_dict):
     return data_dict
 
 
-# In[ ]:
-
-
-
-
-
-# In[5]:
+# In[3]:
 
 
 
@@ -84,7 +68,7 @@ def test_model(X_test, Y_test,  model, comm_round):
     return accuracy, loss
 
 
-# In[6]:
+# In[ ]:
 
 
 def avg_weights(scaled_weight_list):
@@ -104,14 +88,7 @@ def avg_weights(scaled_weight_list):
     return avg_grad
 
 
-# In[25]:
-
-
-smlp_local = SimpleMLP()
-global_model = smlp_local.build()
-
-
-# In[3]:
+# In[5]:
 
 
 from keras.preprocessing.image import ImageDataGenerator
@@ -138,41 +115,23 @@ def load_img_data(path):
             break
 
     return np.array(images), np.array(one_hot_labels)
-# test,label=load_img_data('/home/sriparna/ISIC-2018/val')
-# train0,label0=load_img_data('/home/sriparna/Ashutosh_Tripathi/miccai/ham10k_alpha_0.5_data_results/client_0')
+
 train1,label1=load_img_data('client_1')
 train2,label2=load_img_data('client_2')
 train3,label3=load_img_data('client_3')
 train4,label4=load_img_data('client_4')
-# train5,label5=load_img_data('/home/sriparna/Ashutosh_Tripathi/miccai/isic2018_alpha_0.5_data_results/client_5')
-# train6,label6=load_img_data('/home/sriparna/Ashutosh_Tripathi/miccai/ham10k_alpha_0.5_data_results/client_6')
 
 
-# In[4]:
+# In[6]:
 
 
-# import numpy as np
-# train1=np.load("train1.npy")
-# label1=np.load("label1.npy")
-# train2=np.load("train2.npy")
-# label2=np.load("label2.npy")
-# train3=np.load("train3.npy")
-# label3=np.load("label3.npy")
-# train4=np.load("train4.npy")
-# label4=np.load("label4.npy")
-# print("import sucessfull")
-# test1=np.load("test1.npy")
-# one_hot_labels1=np.load("one_hot_labels1.npy")
+#load test data
 test=np.load("test.npy")
 one_hot_labels=np.load("one_hot_labels.npy")
-# test2=np.load("test2.npy")
-# one_hot_labels2=np.load("one_hot_labels2.npy")
-# test3=np.load("test3.npy")
-# one_hot_labels3=np.load("one_hot_labels3.npy")
 print("import sucessfull")
 
 
-# In[10]:
+# In[25]:
 
 
 test=test/255
@@ -182,13 +141,13 @@ train3=train3/255
 train4=train4/255
 
 
-# In[11]:
+# In[3]:
 
 
 label=one_hot_labels
 
 
-# In[12]:
+# In[4]:
 
 
 client_data1 = {
@@ -211,14 +170,7 @@ client_data2 = {
 clients_batched = create_clients(client_data2)
 
 
-# In[ ]:
-
-
-
-        
-
-
-# In[13]:
+# In[10]:
 
 
 import numpy as np
@@ -339,7 +291,10 @@ class QMIXAgent:
 
 
 
-# In[14]:
+        
+
+
+# In[11]:
 
 
 num_clients=4
@@ -351,13 +306,7 @@ action_high = 1.0
 qm_agent= QMIXAgent(4, action_size, 4)
 
 
-# In[ ]:
-
-
-
-
-
-# In[5]:
+# In[12]:
 
 
 import numpy as np
@@ -380,7 +329,7 @@ count_classes_one_hot(label3)
 count_classes_one_hot(label4)
 
 
-# In[15]:
+# In[ ]:
 
 
 import numpy as np
@@ -412,7 +361,7 @@ Nk4=sum(Nc4)
 N=Nk1+Nk2+Nk3+Nk4
 
 
-# In[16]:
+# In[13]:
 
 
 E1=calculate_Ek(Nc1, Nk1)
@@ -425,19 +374,7 @@ P3=calculate_pk(Nk3, N)
 P4=calculate_pk(Nk4, N)
 
 
-# In[21]:
-
-
-
-
-
-# In[17]:
-
-
-
-
-
-# In[ ]:
+# In[14]:
 
 
 import numpy as np
@@ -580,43 +517,14 @@ def fairness_loss(F, F_k, M):
     return term / M
 
 
-# In[22]:
+# In[5]:
 
 
 client_names = list(clients_batched.keys())
 
 
-# In[23]:
+# In[15]:
 
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[18]:
-
-
-
-
-
-# In[19]:
-
-
-
-
-
-# In[24]:
 
 
 states = np.array([
@@ -627,7 +535,7 @@ states = np.array([
 ])
 
 
-# In[6]:
+# In[16]:
 
 
 acc1 = []
@@ -734,82 +642,4 @@ for comm_round in range(1):
 
 
 global_model.set_weights(best_weights)
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[33]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
 
