@@ -32,12 +32,12 @@ After done with above process, you can run the FedMRL, our proposed method.
 After federated training, run Evaluation.py to acess the evaluation metrics such as accuracy, precision, recall etc.
 
 ## Citation
-@misc{sahoo2024fedmrldataheterogeneityaware,
-      title={FedMRL: Data Heterogeneity Aware Federated Multi-agent Deep Reinforcement Learning for Medical Imaging}, 
-      author={Pranab Sahoo and Ashutosh Tripathi and Sriparna Saha and Samrat Mondal},
-      year={2024},
-      eprint={2407.05800},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG},
-      url={https://arxiv.org/abs/2407.05800}, 
+@misc{sahoo2024fedmrldataheterogeneityaware,<br>
+      title={FedMRL: Data Heterogeneity Aware Federated Multi-agent Deep Reinforcement Learning for Medical Imaging}, <br>
+      author={Pranab Sahoo and Ashutosh Tripathi and Sriparna Saha and Samrat Mondal},<br>
+      year={2024},<br>
+      eprint={2407.05800},<br>
+      archivePrefix={arXiv},<br>
+      primaryClass={cs.LG},<br>
+      url={https://arxiv.org/abs/2407.05800}, <br>
 }
