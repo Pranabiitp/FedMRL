@@ -1,17 +1,7 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
 
 
-import tensorflow as tf
-import numpy as np
-
-# Load CIFAR-10 dataset
-(train_images, train_labels), (test_images, test_labels) = tf.keras.datasets.cifar10.load_data()
 
 
-# In[ ]:
 
 
 import os
