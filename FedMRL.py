@@ -401,7 +401,7 @@ def calculate_similarity_metrics(global_model_weights, client_model_weights_list
     for client_model_weights in client_model_weights_list:
         client_weights_flat = flatten_weights(client_model_weights)
         
-        similarity = np.dot(client_weights_flat, global_weights_flat) /                      (np.linalg.norm(client_weights_flat) * np.linalg.norm(global_weights_flat))
+        similarity = np.dot(client_weights_flat, global_weights_flat) /(np.linalg.norm(client_weights_flat) * np.linalg.norm(global_weights_flat))
         normalized_similarity = (similarity + 1) / 2  # Normalize to range [0, 1]
         similarity_metrics.append(normalized_similarity)
 #         similarity_metrics.append(similarity)
