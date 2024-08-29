@@ -1,7 +1,4 @@
-#!/usr/bin/env python
-# coding: utf-8
 
-# In[1]:
 
 
 import os
@@ -9,7 +6,7 @@ gpu=int(input("Which gpu number you would like to allocate:"))
 os.environ["CUDA_VISIBLE_DEVICES"]=str(gpu)
 
 
-# In[ ]:
+
 
 
 
@@ -35,9 +32,6 @@ from tensorflow.keras.optimizers import SGD
 from tensorflow.keras import backend as K
 
 
-# In[2]:
-
-
 def create_clients(data_dict):
     '''
     Return a dictionary with keys as client names and values as data and label lists.
@@ -52,7 +46,7 @@ def create_clients(data_dict):
     return data_dict
 
 
-# In[3]:
+
 
 
 
@@ -68,7 +62,7 @@ def test_model(X_test, Y_test,  model, comm_round):
     return accuracy, loss
 
 
-# In[ ]:
+
 
 
 def avg_weights(scaled_weight_list):
@@ -88,7 +82,7 @@ def avg_weights(scaled_weight_list):
     return avg_grad
 
 
-# In[5]:
+
 
 
 from keras.preprocessing.image import ImageDataGenerator
