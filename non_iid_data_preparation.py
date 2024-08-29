@@ -7,7 +7,7 @@
 import tensorflow as tf
 import numpy as np
 
-# Load CIFAR-100 dataset
+# Load CIFAR-10 dataset
 (train_images, train_labels), (test_images, test_labels) = tf.keras.datasets.cifar10.load_data()
 
 
